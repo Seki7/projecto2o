@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>新建待办事项</title>
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <script type="text/javascript" src="/resources/js/user/manageInfo.js"></script>
+</head>
+<body>
+<div class="sui-navbar navbar-inverse">
+    <div class="navbar-inner"><a href="/index.html" class="sui-brand">网上商城</a>
+        <ul class="sui-nav">
+            <li class="active"><a href="/index.html">首页</a></li>
+            <li class="active"><a href="/user/outLogin">注销</a></li>
+        </ul>
+    </div>
+</div>
+
+<ul class="sui-breadcrumb">
+    <li><a href="/index.html">首页</a></li>
+    <li><a href="/user/login">用户登录</a></li>
+    <li><a href="/user/userHomepage">用户主页</a></li>
+    <li class="active">管理账号信息</li>
+</ul>
+
+<div class="sui-msg msg-large msg-block msg-success">
+    <div class="msg-con">
+        欢迎您，<span id="user"></span>! 当前账户信息如下
+    </div>
+</div>
+
+
+
+<div class="sui-container">
+    <div class="sui-row">
+        <div class="span1">账户</div>
+        <div class="span1">昵称</div>
+        <div class="span1">年龄</div>
+        <div class="span1">性别</div>
+    </div>
+    <div id="info" class="sui-row">
+    </div>
+</div>
+
+<div id="userInfo" class="sui-container">
+
+</div>
+<p></p>
+<div class="sui-msg msg-large msg-block msg-info">
+    <div class="msg-con">
+        个人基本信息修改
+    </div>
+</div>
+
+<div class="sui-container">
+    <form id="registerForm" class="sui-form form-horizontal sui-validate" action="##" onsubmit="return false"
+          method="post">
+        <div class="control-group">
+            <label class="control-label">用户昵称</label>
+            <div class="controls">
+                <input input type="text" id="changeName" class="input-xlarge"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">用户年龄</label>
+            <div class="controls">
+                <input input type="text" id="changeAge" class="input-xlarge"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">性别</label>
+            <span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+             <input id = changeGender value="1" name="city" type="hidden"><i class="caret"></i><span>选择性别</span></a>
+              <ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">男</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="0">女</a></li>
+             </ul></span></span>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+                <button type="submit" onclick="changeInfo()" class="sui-btn btn-primary">修改</button>
+            </div>
+        </div>
+    </form>
+</div>
+<p></p>
+<div class="sui-msg msg-large msg-block msg-info">
+    <div class="msg-con">
+        密码修改
+    </div>
+</div>
+
+<div class="sui-container">
+    <form id="passwordForm" class="sui-form form-horizontal sui-validate" action="##" onsubmit="return false"
+          method="post">
+        <div class="control-group">
+            <label class="control-label">原密码</label>
+            <div class="controls">
+                <input input type="password" id="orignPw" class="input-xlarge"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">修改密码</label>
+            <div class="controls">
+                <input input type="password" id="changePw1" class="input-xlarge"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">再次输入修改密码</label>
+            <div class="controls">
+                <input input type="password" id="changePw2" class="input-xlarge"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+                <button type="submit" onclick="changePw()" class="sui-btn btn-primary">修改</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

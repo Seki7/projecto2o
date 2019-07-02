@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>新建待办事项</title>
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <script type="text/javascript" src="/resources/js/user/checkOrder.js"></script>
+</head>
+<body>
+<div class="sui-navbar navbar-inverse">
+    <div class="navbar-inner"><a href="/index.html" class="sui-brand">网上商城</a>
+        <ul class="sui-nav">
+            <li class="active"><a href="/index.html">首页</a></li>
+            <li class="active"><a href="/user/outLogin">注销</a></li>
+        </ul>
+    </div>
+</div>
+
+<ul class="sui-breadcrumb">
+    <li><a href="/index.html">首页</a></li>
+    <li><a href="/user/login">用户登录</a></li>
+    <li><a href="/user/userHomepage">用户主页</a></li>
+    <li class="active">查看订单</li>
+</ul>
+
+<div class="sui-msg msg-large msg-block msg-info">
+    <div class="msg-con">
+        查看现有订单
+    </div>
+</div>
+<div class="sui-container">
+    <div class="sui-row">
+        <div class="span1">订单号</div>
+        <div class="span1">商品名称</div>
+        <div class="span1">商铺名称</div>
+        <div class="span1">单价</div>
+        <div class="span1">购买数量</div>
+        <div class="span1">总价</div>
+        <div class="span2">订单时间</div>
+        <div class="span1">订单状态</div>
+    </div>
+</div>
+<div id="currOrder" class="sui-container">
+
+</div>
+</body>
+</html>

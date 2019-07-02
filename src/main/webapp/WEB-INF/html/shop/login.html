@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>新建待办事项</title>
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+</head>
+<body>
+<div class="sui-navbar navbar-inverse">
+    <div class="navbar-inner"><a href="/index.html" class="sui-brand">网上商城</a>
+        <ul class="sui-nav">
+            <li class="active"><a href="/index.html">首页</a></li>
+            <!--<li><a href="/">组件</a></li>-->
+            <!--<li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">登陆 <i class="caret"></i></a>-->
+            <!--<ul role="menu" class="sui-dropdown-menu">-->
+            <!--<li role="presentation"><a href="/index.html" role="menuitem" tabindex="-1" href="#">普通用户登陆</a></li>-->
+            <!--<li role="presentation"><a href="/index.html" role="menuitem" tabindex="-1" href="#">商铺登陆</a></li>-->
+            <!--<li role="presentation"><a href="/index.html" role="menuitem" tabindex="-1" href="#">管理员登陆</a></li>-->
+            <!--</ul>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>
+
+<ul class="sui-breadcrumb">
+    <li><a href="/index.html">首页</a></li>
+    <li class="active">商铺登陆</li>
+</ul>
+
+<div class="sui-container">
+    <form class="sui-form form-horizontal sui-validate" action="/shop/checkLogin" method="post" id="loginForm">
+        <div class="control-group">
+            <label class="control-label">账户：</label>
+            <div class="controls">
+                <input input name="shopId" type="text" id="shopId" placeholder="输入账号"class="input-xlarge"  />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">密码：</label>
+            <div class="controls">
+                <input input name="password" type="password" id="password" placeholder="输入账号"class="input-xlarge"  />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+                <button type="submit" class="sui-btn btn-primary">登录</button>
+                <button type="reset" class="sui-btn">重置</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

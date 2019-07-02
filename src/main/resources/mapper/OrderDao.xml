@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nju.o2o.dao.OrderDao">
+    <insert id="addOneOrder" keyColumn="order_id" keyProperty="orderId">
+        INSERT INTO tb_order (user_id, user_name, product_id, product_name,shop_id,shop_name,normal_price,discount,promotion_price,product_number,total_price, create_time, last_edit_time,status)
+        VALUES (#{userId}, #{userName},  #{productId}, #{productName}, #{shopId}, #{shopName},#{normalPrice},#{discount},#{promotionPrice},#{productNumber},#{totalPrice},#{createTime},#{lastEditTime},#{status})
+    </insert>
+    <select id = "queryOrdersByUserId" resultType="cn.edu.nju.o2o.entity.Order">
+        SELECT *
+        FROM tb_order
+        WHERE user_id = #{0}
+        ORDER BY status ASC
+    </select>
+
+    <select id = "queryOrdersByShopId" resultType="cn.edu.nju.o2o.entity.Order">
+        SELECT *
+        FROM tb_order
+        WHERE shop_id = #{0}
+        ORDER BY status ASC, create_time ASC
+    </select>
+
+    <update id="updateOrder" parameterType="cn.edu.nju.o2o.entity.Order">
+        UPDATE tb_order
+        <set>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE order_id = #{orderId}
+    </update>
+
+    <select id="queryOneOrder" resultType="cn.edu.nju.o2o.entity.Order">
+        SELECT *
+        FROM tb_order
+        WHERE order_id = #{0}
+    </select>
+
+</mapper>

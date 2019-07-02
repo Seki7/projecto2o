@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>新建待办事项</title>
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <script type="text/javascript" src="/resources/js/user/productDetail.js"></script>
+</head>
+<body>
+<div class="sui-navbar navbar-inverse">
+    <div class="navbar-inner"><a href="/index.html" class="sui-brand">网上商城</a>
+        <ul class="sui-nav">
+            <li class="active"><a href="/index.html">首页</a></li>
+            <li class="active"><a href="/user/outLogin">注销</a></li>
+        </ul>
+    </div>
+</div>
+
+<ul class="sui-breadcrumb">
+    <li><a href="/index.html">首页</a></li>
+    <li><a href="/user/login">用户登录</a></li>
+    <li><a href="/user/userHomepage">用户主页</a></li>
+    <li><a href="/user/shopping">购物</a></li>
+    <li class="active">商铺详情页</li>
+</ul>
+
+<div class="sui-msg msg-large msg-block msg-success">
+    <div class="msg-con">
+        <span id = "productName"></span>的商品详情页
+    </div>
+</div>
+
+<div class="sui-container">
+    <div class="sui-row">
+        <div class="span1">商品id</div>
+        <div class="span1">商品名称</div>
+        <div class="span1">商品价格</div>
+        <div class="span1">剩余数量</div>
+        <div class="span1">描述</div>
+        <div class="span2">上架时间</div>
+        <div class="span1">分类</div>
+        <div class="span1">店铺</div>
+    </div>
+</div>
+
+<div id = "info" class="sui-container">
+</div>
+
+<div class="sui-msg msg-large msg-block msg-info">
+    <div class="msg-con">
+        购买
+    </div>
+</div>
+<div class="sui-container">
+    <form class="sui-form">
+        <input id = "buyNumber" class="input-mini" type="text" placeholder="数量">
+        <button onclick="setting();return false;" data-toggle="modal" data-target="#myModal" data-keyboard="false" class="sui-btn btn-primary btn-lg">购买</button>
+        <!-- Modal-->
+        <div id="myModal" tabindex="-1" role="dialog" data-hasfoot="false" class="sui-modal hide fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">×</button>
+                        <h4 id="myModalLabel" class="modal-title">购买确认</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>您选购了<span id = "numCheck"></span>件商品，商品名：<span id = "nameCheck"></span></p>
+                        <p>请输入您的密码</p>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input input name="password" type="password" id="passwordCheck" placeholder="输入密码"class="input-xlarge"  />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="orderCheck();return false;" data-ok="modal" class="sui-btn btn-primary btn-large">提交订单</button>
+                        <button type="button" data-dismiss="modal" class="sui-btn btn-default btn-large">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

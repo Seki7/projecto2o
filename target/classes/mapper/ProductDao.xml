@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nju.o2o.dao.ProductDao">
+    <resultMap type="cn.edu.nju.o2o.entity.Product" id="productMap">
+        <id column="product_id" property="productId" />
+        <result column="product_name" property="productName" />
+        <result column="normal_price" property="normalPrice" />
+        <result column="number" property="number" />
+        <result column="description" property="description" />
+        <result column="priority" property="priority" />
+        <result column="create_time" property="createTime" />
+        <result column="last_edit_time" property="lastEditTime" />
+        <result column="status" property="status" />
+        <association property="productCategory" column="product_category_id"
+                     javaType="cn.edu.nju.o2o.entity.ProductCategory">
+            <id column="product_category_id" property="productCategoryId" />
+            <result column="product_category_name" property="productCategoryName" />
+        </association>
+        <association property="shop" column="shop_id"
+                     javaType="cn.edu.nju.o2o.entity.Shop">
+            <id column="shop_id" property="shopId" />
+            <result column="shop_name" property="shopName" />
+        </association>
+    </resultMap>
+
+    <insert id="addProduct" keyColumn="product_id" keyProperty="productId">
+        INSERT INTO tb_product (product_name, normal_price, number, description, priority, create_time, last_edit_time, product_category_id,shop_id,status)
+        VALUES (#{productName}, #{normalPrice},  #{number}, #{description}, #{priority}, #{createTime}, #{lastEditTime}, #{productCategory.productCategoryId}, #{shop.shopId}, #{status})
+    </insert>
+
+    <select id="queryProductList" resultMap="productMap">
+        SELECT p.product_id,
+               p.product_name,
+               p.normal_price,
+               p.number,
+               p.description,
+               p.priority,
+               p.create_time,
+               p.last_edit_time,
+               p.status,
+               pc.product_category_id,
+               pc.product_category_name,
+               s.shop_id,
+               s.shop_name
+        FROM
+        tb_product p,
+        tb_product_category pc,
+        tb_shop s
+        <where>
+            <if
+                    test="productCondition.productCategory != null and
+			productCondition.productCategory.productCategoryId != null">
+                and p.product_category_id =
+                #{productCondition.productCategory.productCategoryId}
+            </if>
+            <if test="productCondition.productName != null">
+                and p.product_name like '%${productCondition.productName}%'
+            </if>
+            AND
+            p.product_category_id = pc.product_category_id
+            AND
+            p.shop_id = s.shop_id
+        </where>
+        ORDER BY
+        p.priority DESC
+        LIMIT #{rowIndex},#{pageSize};
+    </select>
+
+    <select id = "queryProductCount" resultType="int">
+        SELECT
+        count(1)
+        FROM
+        tb_product p,
+        tb_product_category pc,
+        tb_shop s
+        <where>
+            <if
+                    test="productCondition.productCategory != null and
+			productCondition.productCategory.productCategoryId != null">
+                and p.product_category_id =
+                #{productCondition.productCategory.productCategoryId}
+            </if>
+            <if test="productCondition.productName != null">
+                and p.product_name like '%${productCondition.productName}%'
+            </if>
+            AND
+            p.product_category_id = pc.product_category_id
+            AND
+            p.shop_id = s.shop_id
+        </where>
+    </select>
+
+    <select id="queryOneProduct" resultMap="productMap">
+        SELECT p.product_id,
+               p.product_name,
+               p.normal_price,
+               p.number,
+               p.description,
+               p.priority,
+               p.create_time,
+               p.last_edit_time,
+               p.status,
+               pc.product_category_id,
+               pc.product_category_name,
+               s.shop_id,
+               s.shop_name
+        FROM
+        tb_product p,
+        tb_product_category pc,
+        tb_shop s
+        WHERE
+        p.product_category_id = pc.product_category_id
+        AND
+        p.shop_id = s.shop_id
+        AND
+        p.product_id = #{0}
+    </select>
+
+    <update id="updateProduct" parameterType="cn.edu.nju.o2o.entity.Product">
+        UPDATE tb_product
+        <set>
+            <if test="productName != null">product_name = #{productName},</if>
+            <if test="normalPrice != null">normal_price = #{normalPrice},</if>
+            <if test="number != null">number = #{number},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="priority != null">priority = #{priority},</if>
+            <if test="lastEditTime != null">last_edit_time = #{lastEditTime},</if>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE product_id = #{productId}
+    </update>
+
+</mapper>

@@ -1,0 +1,11 @@
+cn/edu/nju/o2o/entity/WechatAuth.class
+cn/edu/nju/o2o/dao/AreaDao.class
+cn/edu/nju/o2o/entity/ProductCategory.class
+cn/edu/nju/o2o/entity/Shop.class
+cn/edu/nju/o2o/entity/PersonInfo.class
+cn/edu/nju/o2o/entity/Product.class
+cn/edu/nju/o2o/entity/ShopCategory.class
+cn/edu/nju/o2o/entity/ProductImg.class
+cn/edu/nju/o2o/entity/LocalAuth.class
+cn/edu/nju/o2o/entity/Area.class
+cn/edu/nju/o2o/entity/HeadLine.class
